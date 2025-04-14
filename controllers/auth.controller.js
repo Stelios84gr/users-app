@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
-const authService = require('../services/auth.services');
+const authService = require('../services/auth.service');
 
 exports.login = async(req, res) => {
     console.log("Login user", req.body);

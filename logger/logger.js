@@ -31,6 +31,8 @@
 //   transports: [new transports.Console()]
 // })
 
+// For jest tests
+// require('dotenv').config();
 
 // Third Example - custom format, console, MongoDB & 3 different-level file logging
 

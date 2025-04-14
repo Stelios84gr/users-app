@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const authService = require('../services/auth.services');
+const authService = require('../services/auth.service');
 
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];    // το πεδίο authorization από τους headers
