@@ -44,7 +44,7 @@ describe("Requests for /api/users", ()=>{
     }, 5000);
 });
 
-descripe("Requests for /api/users/:username", () => {
+describe("Requests for /api/users/:username", () => {
     beforeAll(()=>{
         user= {
             username: "admin",
@@ -60,8 +60,8 @@ it("GET - Returns specific user", async()=>{
     .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body.status).tobeTruthy();
-    expect(res.body.username).toBe('user1');
-    expect(res.body.email).toBe('user1@aueb.gr');
+    expect(res.body.status).toBeTruthy();
+    expect(res.body.data.username).toBe('user1');
+    expect(res.body.data.email).toBe('user1@aueb.gr');
 })
 });
