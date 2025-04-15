@@ -140,7 +140,7 @@ it("GET - Returns specific user", async()=>{
 
     const result = await userService.findLastInsertedUser();
 
-    const res = await request(app);
+    const res = await request(app)
     .get('/api/users/' + result.username)
     .set('Authorization', `Bearer ${token}`);
 
