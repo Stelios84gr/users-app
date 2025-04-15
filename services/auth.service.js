@@ -37,11 +37,11 @@ async function googleAuth(code) {
 
     try {
         // Exchange code for tokens
-        const { tokens } = oauth2Client.getToken(code); // όταν κάνουμε login παίρνουμε ένα code, το οποίο το ανταλλάζουμε για ένα token
+        const { tokens } = await oauth2Client.getToken(code); // object destructuring του token response (μεταβλητής απ' το oAuth library) - όταν κάνουμε login παίρνουμε ένα code, το οποίο ανταλλάζουμε για ένα token με στοιχεία, μεταξύ των οποίων, τα στοιχεία του χρήστη
         console.log("Step 1", tokens);
-        oauth2Client.setCredentials(tokens);    // πιστωποίηση token
+        oauth2Client.setCredentials(tokens);    // βάζει τα tokens στον OAuth2Client
 
-        const ticket = await oauth2Client.verifyIdToken({   // πιστωποίηση ότι τα παρακάτω στοιχεία προέρχονται απ' την Google
+        const ticket = await oauth2Client.verifyIdToken({   // πιστοποίηση ότι τα παρακάτω στοιχεία προέρχονται απ' την Google
             idToken: tokens.id_token,
             audience: CLIENT_ID
         });

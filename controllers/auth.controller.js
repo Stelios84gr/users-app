@@ -26,12 +26,12 @@ exports.login = async(req, res) => {
 }
 
 exports.googleLogin = async(req, res) => {
-    const code = req.query.code;
+    const code = req.query.code;    // το Google μάς στέλνει ένα code ως query parameter
 
     if (!code) {
         res.status(400).json({ status:false, data: "Authorization code is missing."});
     } else {
-        let user = await authService.googleAuth(code);
+        let user = await authService.googleAuth(code);  // υλοποιούμε Google μέσω Google OAuth 2.0 με το code που μας έστειλε το google
         if (user) {
             console.log(">>>", user);
             res.status(200).json({ status: true, data: user });
