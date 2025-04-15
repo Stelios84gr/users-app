@@ -45,7 +45,14 @@ exports.create = async(req, res) => {
 
     let data = req.body;
     const SaltOrRounds = 10;    // κύκλοι κρυπτογράφησης
-    const hashedPassword = await bcrypt.hash(data.password, SaltOrRounds);
+    let hashedPassword = '';
+    if (data.password) {
+     hashedPassword = await bcrypt.hash(data.password, SaltOrRounds);
+
+     console.log("password>>>", )
+    } else {
+         hashedPassword = "";
+    }
 
     const newUser = new User({
         username: data.username,
