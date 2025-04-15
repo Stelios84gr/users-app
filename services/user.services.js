@@ -16,8 +16,8 @@ async function findLastInsertedUser() {
     try {
         const result = await User.find().sort({_id:-1}).limit(1); // sort από τον πιο πρόσφατο στον πιο παλιό, μόνο το πρώτο result
         // const result = User.findOne()sort.({_id:-1}) // η findOne επιστρέφει ένα document
-        console.log("Success in finding last inserted user.", result[0].username);  // η find επιστρέφει array
-        return result[0];
+        // console.log("Success in finding last inserted user.", result[0].username);
+        return result[0];   // η find επιστρέφει array
     } catch (err) {
         console.log("Problem in finding last inserted user.", err);
         return false;
