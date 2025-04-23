@@ -5,6 +5,7 @@ WORKDIR /app
 # Install all dependencies in the root directory
 COPY package*.json ./
 RUN npm install
+RUN npm rebuild bcrypt --build-from-source
 # Bundle app source
 COPY . .
 # port used for the app
