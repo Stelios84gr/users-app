@@ -7,6 +7,7 @@ mongoose.connect(process.env.MONGODB_URI)   // εκχωρούμε μεταβλη
     () => {
       console.log("Connection to MongoDB established");
       
+      // μεταφορά του παρακάτω block απ' το app.js γιατί χρειάζεται δημιουργία ξεχωριστού server για testing
       app.listen(port, ()=>{
         console.log("Server is up")
       })

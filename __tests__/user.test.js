@@ -128,6 +128,7 @@ describe("Requests for /api/users", ()=>{
 
 describe("Requests for /api/users/:username", () => {
     beforeAll(()=>{
+        // δημιουργία test token με χρήση mock secret
         user= {
             username: "admin",
             email: "admin@aueb.gr",
@@ -142,6 +143,7 @@ it("GET - Returns specific user", async()=>{
 
     const res = await request(app)
     .get('/api/users/' + result.username)
+    // αποστολή test token με headers
     .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
