@@ -177,7 +177,7 @@ it("DELETE - Delete a user", async() => {
     const result = await userService.findLastInsertedUser();
 
     const res = await request(app)
-    .delete('/api/users' + result.username)
+    .delete('/api/users/' + result.username)
     .set('Authorization', `Bearer ${token}`);
 
     expect(res.statusCode).toBe(200);
